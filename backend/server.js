@@ -20,12 +20,19 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/task-app"
 });
 
 app.use(express.json());
+const allowedOrigins = [
+    'http://localhost:3000',
+    'https://expense-tracker-1-emab.onrender.com'
+];
 
-app.use(cors({
-    origin: 'http://localhost:3000', 
-    methods: 'GET, POST, PUT, DELETE', 
-    allowedHeaders: 'Content-Type, Authorization', 
-    credentials: true 
+aapp.use(cors({
+    origin: (origin, callback) => {
+        if (allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    }
 }));
 app.use(express.urlencoded({ extended: true }));
 app.use("/uploads", express.static('uploads'));

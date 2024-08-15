@@ -38,6 +38,7 @@ function Login() {
         if (Object.keys(errors).length === 0) {
             fetch("https://expense-tracker-d2dz.onrender.com/auth/login", {
                 method: "POST",
+                mode : "no-cors",
                 headers: {
                     "Content-Type": "application/json",
                 },
