@@ -16,7 +16,7 @@ function Navbar() {
         const userInfo = await localStorage.getItem("loggedInUser") && JSON.parse(localStorage.getItem("loggedInUser"));
         setUser(userInfo);
         if (userInfo) {
-            fetch("http://localhost:7000/auth/profile/" + userInfo.email, {
+            fetch("https://expense-tracker-d2dz.onrender.com/auth/profile/" + userInfo.email, {
                 headers: {
                     'Authorization': `Bearer ${userInfo.token}`,
                 }
@@ -68,7 +68,7 @@ function Navbar() {
                         <li className="nav-item dropdown">
                             <Link className="nav-link" role="button" onClick={dropDownToggle}>
                                 <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: '#ddd' }}>
-                                    <img src={`http://localhost:7000/uploads/${profile?.profilepic}`} style={{ width: '100%', height: '100%', borderRadius: '50%' }} alt="Profile" />
+                                    <img src={`https://expense-tracker-d2dz.onrender.com/uploads/${profile?.profilepic}`} style={{ width: '100%', height: '100%', borderRadius: '50%' }} alt="Profile" />
                                 </div>
                             </Link>
                             {isToggled && (

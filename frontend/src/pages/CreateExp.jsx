@@ -57,7 +57,7 @@ function CreateExp() {
         let errors = validateExpField();
         setErrors(errors);
         if (Object.keys(errors).length === 0) {
-            fetch("http://localhost:7000/exp/create", {
+            fetch("https://expense-tracker-d2dz.onrender.com/exp/create", {
                 method: "POST",
                 headers: { 'Content-Type': "application/json" },
                 body: JSON.stringify(expData)

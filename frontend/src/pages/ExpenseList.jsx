@@ -11,7 +11,7 @@ function ExpenseList() {
     const navigate = useNavigate();
 
     const getAllExpenses = () => {
-        fetch("http://localhost:7000/exp/all/")
+        fetch("https://expense-tracker-d2dz.onrender.com/exp/all/")
             .then((res) => res.json())
             .then((result) => {
                 if (Array.isArray(result)) {
@@ -31,7 +31,7 @@ function ExpenseList() {
     };
 
     const getExpenseSummary = () => {
-        fetch("http://localhost:7000/exp/summary")
+        fetch("https://expense-tracker-d2dz.onrender.com/exp/summary")
             .then((res) => res.json())
             .then((result) => {
                 setExpenseSummary(result);
@@ -45,7 +45,7 @@ function ExpenseList() {
     }, []);
 
     const deleteExpense = (e, id) => {
-        fetch("http://localhost:7000/exp/" + id, { method: "DELETE" })
+        fetch("https://expense-tracker-d2dz.onrender.com/exp/" + id, { method: "DELETE" })
             .then((res) => res.text())
             .then(() => {
                 getAllExpenses(); 

@@ -30,7 +30,7 @@ function Signup() {
     };
 
     const signup = () => {
-        fetch("http://localhost:7000/auth/signup", {
+        fetch("https://expense-tracker-d2dz.onrender.com/auth/signup", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(userAuth)
