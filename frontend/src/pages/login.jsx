@@ -35,10 +35,11 @@ function Login() {
         let errors = validateLoginForm();
         setErrors(errors);
 
+        //https://expense-tracker-d2dz.onrender.com
+
         if (Object.keys(errors).length === 0) {
             fetch("https://expense-tracker-d2dz.onrender.com/auth/login", {
                 method: "POST",
-                mode : "no-cors",
                 headers: {
                     "Content-Type": "application/json",
                 },
