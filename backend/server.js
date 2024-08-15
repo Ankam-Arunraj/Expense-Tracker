@@ -25,7 +25,7 @@ const allowedOrigins = [
     'https://expense-tracker-1-emab.onrender.com'
 ];
 
-aapp.use(cors({
+app.use(cors({
     origin: (origin, callback) => {
         if (allowedOrigins.includes(origin)) {
             callback(null, true);
